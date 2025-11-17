@@ -1,34 +1,28 @@
-@font-face {
-  font-family: "NunitoSans";
-  src: url("/fonts/Nunito_Sans/NunitoSans.woff2") format("woff2-variations");
-  font-weight: 200 1000;
-  font-stretch: 75% 125%;
-  font-style: normal;
-  font-display: swap;
+@import url("/fonts/Inter-4.1/web/inter.css");
+
+:root {
+  font-family: 'Inter', sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: 'InterVariable', sans-serif;
+    font-variation-settings: "wght" 400, "opsz" 32;
+    font-feature-settings: "case" 0, "dlig" 0, "frac" 0, "dnom" 0, "numr" 0, "subs" 0, "sups" 0, "tnum" 0, "zero", "ss01", "ss02" 0, "ss03" 0, "ss04" 0, "ss05" 0, "ss06" 0, "ss07" 0, "ss08" 0, "cv01" 0, "cv02" 0, "cv03" 0, "cv04" 0, "cv05", "cv06", "cv07", "cv08" 0, "cv09" 0, "cv10" 0, "cv11", "cv12", "cv13", "cpsp", "c2sc" 0, "salt" 0, "aalt" 0, "calt", "ccmp", "locl", "kern";
+  }
 }
 
 body {
-  font-family: "NunitoSans", sans-serif;
-  font-weight: 200;
-  font-stretch: 75%;
-  font-size: medium;
-  font-variation-settings: "YTLC" 440; /* 440 .. 540 */
   /*
   pointer-events: none;
   user-select: none;
   */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   margin: 0;
+  height: 100vh;
 }
 
-h1, h2 {
-  font-weight: 400;
-  margin: 0;
-}
-
-h1 {
-  user-select: all;
-}
-
-h1, h2, footer, header {
-  text-transform: uppercase;
-}
