@@ -1,18 +1,30 @@
+<script>
+  let { data } = $props();
+  const { siteInfo } = data;
+</script>
+
 <article>
   <header>&nbsp;</header>
   <div class="name-position-service">
-    <h1 class="name">Andrey Paymushin</h1>
+    <h1 class="name">
+      {siteInfo.founder.firstName}
+      {siteInfo.founder.lastName}
+    </h1>
     <h2 class="position">founder / CEO</h2>
-    <h3 class="service">oldtimeer & parts sourcing</h3>
+    <h3 class="service">{siteInfo.meta.description}</h3>
   </div>
   <dl class="contacts">
     <dt>T</dt>
-    <dd><a href="tel:+4900012345678" target="_blank">+49 000 12345678</a></dd>
+    <dd>
+      <a href="tel:{siteInfo.contacts.telephone}" target="_blank"
+        >{siteInfo.contacts.telephone}</a
+      >
+    </dd>
 
     <dt>E</dt>
     <dd>
-      <a href="mailto:andrey.paymushin@oldtimer.de" target="_blank"
-        >andrey.paymushin@oldtimer.de</a
+      <a href="mailto:{siteInfo.contacts.email}" target="_blank"
+        >{siteInfo.contacts.email}</a
       >
     </dd>
   </dl>
