@@ -28,7 +28,7 @@
       >
     </dd>
   </dl>
-  <footer>based in Germany</footer>
+  <footer>&nbsp;</footer>
 </article>
 
 <style>
@@ -93,6 +93,7 @@
     --name-color: hsl(0deg 0% 27.57%);
     --position-color: var(--name-color);
     --service-color: var(--name-color);
+    --header-footer-color: hsl(0deg 0% 47% / 1);
 
     /* global defaults (desktop-ish baseline) */
     --article-padding: 2.5vw;
@@ -140,7 +141,7 @@
     color: var(--color);
 
     background-color: var(--article-background-color);
-    filter: var(--article-filter);
+    /* filter: var(--article-filter); */
 
     & > :is(header, footer) {
       display: flex;
@@ -149,7 +150,7 @@
       text-transform: uppercase;
       font-variant: all-petite-caps;
       font-size: small;
-      color: var(--filter-drop-shadow-color);
+      color: var(--header-footer-color);
     }
 
     & > header {
@@ -230,12 +231,13 @@
         height: 100%;
         justify-content: center;
         color: var(--filter-drop-shadow-color);
+        display: none;
       }
 
       & > dd {
         grid-column: 2;
         margin-inline-start: unset;
-        border-bottom: 1px dotted var(--filter-drop-shadow-color);
+        /* border-bottom: 1px dotted var(--filter-drop-shadow-color); */
         justify-content: end;
       }
 
