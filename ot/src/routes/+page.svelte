@@ -88,7 +88,7 @@
     /* global color scheme */
     --root-background-color: hsl(240deg 6.67% 97.06%);
     --root-color: hsl(0deg 0% 10.2%);
-    --article-background-color: hsl(0deg 0% 100%);
+    --article-background-color: hsl(0deg 0% 100% / 0%);
     --filter-drop-shadow-color: hsl(0deg 0% 81.72%);
     --name-color: hsl(0deg 0% 27.57%);
     --position-color: var(--name-color);
@@ -186,6 +186,7 @@
         text-transform: uppercase;
         color: var(--name-color);
         user-select: all;
+        pointer-events: all;
       }
 
       & > .position {
