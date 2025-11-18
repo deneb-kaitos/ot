@@ -1,5 +1,5 @@
 <article>
-  <header>oldtimer sourcing</header>
+  <header>&nbsp;</header>
   <div class="name-position-service">
     <h1 class="name">Andrey Paymushin</h1>
     <h2 class="position">founder / CEO</h2>
@@ -7,23 +7,82 @@
   </div>
   <dl class="contacts">
     <dt>T</dt>
-    <dd>+49 000 12345678</dd>
+    <dd><a href="tel:+4900012345678" target="_blank">+49 000 12345678</a></dd>
 
     <dt>E</dt>
-    <dd>andrey.paymushin@oldtimer.de</dd>
+    <dd>
+      <a href="mailto:andrey.paymushin@oldtimer.de" target="_blank"
+        >andrey.paymushin@oldtimer.de</a
+      >
+    </dd>
   </dl>
   <footer>based in Germany</footer>
 </article>
 
 <style>
   :root {
+    font-family: "Inter", sans-serif;
+  }
+
+  @supports (font-variation-settings: normal) {
+    :root {
+      font-family: "InterVariable", sans-serif;
+      font-variation-settings:
+        "wght" 100,
+        "opsz" 14;
+      font-feature-settings:
+        "case" 0,
+        "dlig" 0,
+        "frac" 0,
+        "dnom" 0,
+        "numr" 0,
+        "subs" 0,
+        "sups" 0,
+        "tnum" 0,
+        "zero",
+        "ss01",
+        "ss02" 0,
+        "ss03" 0,
+        "ss04" 0,
+        "ss05" 0,
+        "ss06" 0,
+        "ss07" 0,
+        "ss08" 0,
+        "cv01" 0,
+        "cv02" 0,
+        "cv03" 0,
+        "cv04" 0,
+        "cv05",
+        "cv06",
+        "cv07",
+        "cv08" 0,
+        "cv09" 0,
+        "cv10" 0,
+        "cv11",
+        "cv12",
+        "cv13",
+        "cpsp",
+        "c2sc" 0,
+        "salt" 0,
+        "aalt" 0,
+        "calt",
+        "ccmp",
+        "locl",
+        "kern";
+    }
+  }
+
+  :root {
     /* global color scheme */
     --root-background-color: hsl(240deg 6.67% 97.06%);
     --root-color: hsl(0deg 0% 10.2%);
     --article-background-color: hsl(0deg 0% 100%);
     --filter-drop-shadow-color: hsl(0deg 0% 81.72%);
+    --name-color: hsl(0deg 0% 27.57%);
+    --position-color: var(--name-color);
+    --service-color: var(--name-color);
 
-    /* global defaults */
+    /* global defaults (desktop-ish baseline) */
     --article-padding: 2.5vw;
     --article-padding-top: 0.5vw;
     --article-padding-bottom: var(--article-padding-top);
@@ -44,9 +103,13 @@
     container: article / inline-size;
     display: grid;
     grid-template-columns: var(--article-padding) 1fr var(--article-padding);
-    grid-template-rows: var(--article-padding-top) auto 3fr 1fr auto var(
-        --article-padding-bottom
-      );
+    grid-template-rows:
+      var(--article-padding-top)
+      auto
+      3fr
+      1fr
+      auto
+      var(--article-padding-bottom);
     grid-template-areas:
       ". . ."
       ". header ."
@@ -106,17 +169,29 @@
         display: flex;
         align-items: end;
         margin-bottom: calc(var(--header-footer-margin-size) * 0.35);
+        font-variation-settings: "wght" 900;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--name-color);
+        user-select: all;
       }
 
       & > .position {
         grid-area: position;
         align-items: center;
+        font-variation-settings: "wght" 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--position-color);
       }
 
       & > .service {
         grid-area: service;
         align-items: start;
         margin-top: calc(var(--header-footer-margin-size) * 0.35);
+        font-variation-settings: "wght" 300;
+        letter-spacing: 0.05em;
+        color: var(--service-color);
       }
     }
 
@@ -150,11 +225,164 @@
         border-bottom: 1px dotted var(--filter-drop-shadow-color);
         justify-content: end;
       }
+
+      & :is(a, a:visited) {
+        text-decoration: none;
+        color: var(--color);
+        pointer-events: all;
+      }
     }
 
     & > footer {
       grid-area: footer;
       margin-top: var(--header-footer-margin-size);
+    }
+  }
+
+  /* =========================
+   PHONE – PORTRAIT
+   max-width: 600px & portrait
+   ========================= */
+  @media (max-width: 600px) and (orientation: portrait) {
+    :root {
+      --article-min-width: 90vw;
+      --article-aspect-ratio: unset;
+      --article-min-width: unset;
+      --article-filter: none;
+      --article-background-color: unset;
+      --article-padding: 2.5vw;
+      --article-padding-top: 4vw;
+      --article-padding-bottom: 4vw;
+      --article-column-gap: 2vw;
+      --article-row-gap: 1.5vh;
+      --header-footer-margin-size: 1.5vh;
+      --article-row-gap: 3vh;
+    }
+
+    article {
+      grid-template-columns: var(--article-padding) 1fr var(--article-padding);
+      grid-template-rows: 2fr 1fr;
+      grid-template-areas:
+        ". name-position-service ."
+        ". contacts ."
+        ". contacts. ";
+
+      & > :is(header, footer) {
+        display: none;
+      }
+
+      & > .name-position-service {
+        grid-template-columns: 1fr;
+        grid-template-rows: 5fr 1fr 1fr;
+        grid-template-areas:
+          "name"
+          "position"
+          "service";
+        column-gap: unset;
+
+        & > :is(.name, .position, .service) {
+          margin: 0;
+          font-variation-settings:
+            "wght" 100,
+            "opsz" 28;
+        }
+
+        & > .name {
+          font-size: 38px;
+          align-items: end;
+          letter-spacing: -0.07em;
+        }
+
+        & > .position {
+          font-size: x-large;
+          align-items: start;
+        }
+
+        & > .service {
+          align-items: center;
+        }
+      }
+
+      align-self: stretch;
+      justify-self: stretch;
+    }
+
+    article > .contacts {
+      width: 100%;
+      justify-self: stretch;
+    }
+  }
+
+  /* =========================
+   PHONE – LANDSCAPE
+   small height & landscape (rotated phone)
+   ========================= */
+  @media (max-height: 600px) and (orientation: landscape) {
+    :root {
+      --article-min-width: 85vw;
+      --article-aspect-ratio: 5 / 3;
+      --article-padding: 4vw;
+      --article-padding-top: 3vw;
+      --article-padding-bottom: 3vw;
+      --article-column-gap: 2vw;
+      --article-row-gap: 1.2vh;
+      --header-footer-margin-size: 1.2vh;
+
+      background-color: green;
+    }
+
+    article {
+      align-self: center;
+      justify-self: center;
+    }
+
+    article > .contacts {
+      width: 90%;
+      justify-self: center;
+    }
+  }
+
+  /* =========================
+   DESKTOP – PORTRAIT
+   tall viewport & portrait (rotated monitor / tablet)
+   ========================= */
+  @media (min-height: 900px) and (min-width: 768px) and (orientation: portrait) {
+    :root {
+      --article-min-width: 55vw;
+      --article-aspect-ratio: 3 / 4;
+      --article-padding: 3vw;
+      --article-padding-top: 2vw;
+      --article-padding-bottom: 2vw;
+      --article-column-gap: 1vw;
+      --article-row-gap: 1.5vh;
+      --header-footer-margin-size: 2vh;
+    }
+
+    article > .contacts {
+      width: 60%;
+      justify-self: center;
+    }
+  }
+
+  /* =========================
+   DESKTOP – LANDSCAPE
+   wide viewport & landscape (classic desktop)
+   ========================= */
+  @media (min-width: 1024px) and (orientation: landscape) {
+    :root {
+      --article-min-width: 40vw;
+      --article-aspect-ratio: 5 / 3;
+      --article-padding: 2.5vw;
+      --article-padding-top: 0.5vw;
+      --article-padding-bottom: 0.5vw;
+      --article-column-gap: 0.5vw;
+      --article-row-gap: 1vh;
+      --header-footer-margin-size: 2.5vh;
+    }
+
+    article > .contacts {
+      width: 50%;
+      justify-self: center;
     }
   }
 </style>
