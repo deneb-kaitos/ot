@@ -10,7 +10,7 @@ export const siteInfo = {
   },
   contacts: {
     telephone: "+49 176 11111111",
-    email: "andrey.paymushin@oldtimerberater.eu",
+    email: "andrey.paymushin@gmail.com",
   },
   address: {
     streetAddress: "Musterstraße 1",
