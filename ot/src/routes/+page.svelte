@@ -161,18 +161,18 @@
       container: name-position-service / inline-size;
       grid-area: name-position-service;
       display: grid;
-      grid-template-columns: var(--article-padding) 1fr var(--article-padding);
+      grid-template-columns: 1fr;
       grid-template-rows: 2fr 1fr 2fr;
       grid-template-areas:
-        ". name ."
-        ". position ."
-        ". service .";
+        "name"
+        "position"
+        "service";
       column-gap: var(--article-column-gap);
       row-gap: calc(var(--article-row-gap) * 0.75);
 
       & > :is(.name, .position, .service) {
         display: flex;
-        justify-content: center;
+        justify-content: end;
         margin: 0;
       }
 
@@ -216,7 +216,7 @@
       justify-content: stretch;
       align-items: center;
       margin: 0;
-      width: 50%;
+      width: 100%;
       justify-self: center;
 
       & > :is(dt, dd) {
@@ -394,8 +394,7 @@
     }
 
     article > .contacts {
-      width: 50%;
-      justify-self: center;
+      width: 100%;
     }
   }
 </style>
