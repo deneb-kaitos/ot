@@ -24,10 +24,28 @@
   --article-filter: drop-shadow(var(--drop-shadow-x) var(--drop-shadow-y) var(--drop-shadow-spread) var(--drop-shadow-color));
 
   --opsz: 32;
-  --wght: 400;
+  --wght: 100;
   --letter-spacing: -0.019em;
 
   --name-opsz: 14;
+  --name-wght: 400; 
+  --name-font-size: 3rem;
+
+  --service-opsz: var(--name-opsz);
+  --service-wght: var(--name-wght); 
+  --service-font-size: 1.5rem;
+
+  --position-opsz: var(--name-opsz);
+  --position-wght: 150; 
+  --position-font-size: 1.5rem;
+
+  --tel-opsz: var(--name-opsz);
+  --tel-wght: var(--name-wght); 
+  --tel-font-size: 1.25rem;
+
+  --mailto-opsz: var(--name-opsz);
+  --mailto-wght: var(--name-wght); 
+  --mailto-font-size: var(--tel-font-size);
 }
 
 html, body {

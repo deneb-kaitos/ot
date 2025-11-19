@@ -11,7 +11,7 @@ export const siteInfo = {
   position: "founder/CEO",
   contacts: {
     telephone: "+4917638000034",
-    email: "andrey.paymushin@gmail.com",
+    emailDomain: "gmail.com",
   },
   address: {
     streetAddress: "Musterstraße 1",
@@ -44,7 +44,7 @@ export const JSONLD = ({
   name: `${siteInfo.founder.firstName} ${siteInfo.founder.lastName}`,
   url: `https://${siteInfo.domain}/${siteInfo.founder.firstName.toLowerCase()}.${siteInfo.founder.lastName.toLowerCase()}`,
   telephone: `${siteInfo.contacts.telephone}`,
-  email: `${siteInfo.contacts.email}`,
+  email: `${siteInfo.founder.firstName.toLowerCase()}.${siteInfo.founder.lastName.toLowerCase()}@${siteInfo.contacts.emailDomain}`,
   image: `https://${siteInfo.domain}/preview.png`,
   priceRange: "€€€",
   address: {
