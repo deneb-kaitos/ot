@@ -1,6 +1,6 @@
 <script>
   let { data } = $props();
-  const { siteInfo } = data;
+  const { siteInfo, JSONLD } = data;
 </script>
 
 <article>
@@ -18,8 +18,8 @@
       >{siteInfo.contacts.telephone}</a
     >
 
-    <a href="mailto:{siteInfo.contacts.email}" class="mailto" target="_blank"
-      >{siteInfo.contacts.email}</a
+    <a href={JSONLD.email} class="mailto" target="_blank"
+      >@{siteInfo.founder.firstName.toLowerCase()}.{siteInfo.founder.lastName.toLowerCase()}</a
     >
   </div>
   <footer>located in Germany</footer>
@@ -74,15 +74,26 @@
       & > .name {
         grid-area: name;
         align-items: end;
-        font-variation-settings: "opsz" var(--name-opsz);
+        font-variation-settings:
+          "opsz" var(--name-opsz),
+          "wght" var(--name-wght);
+        font-size: var(--name-font-size);
       }
 
       & > .position {
         grid-area: position;
+        font-variation-settings:
+          "opsz" var(--position-opsz),
+          "wght" var(--position-wght);
+        font-size: var(--position-font-size);
       }
 
       & > .service {
         grid-area: service;
+        font-variation-settings:
+          "opsz" var(--service-opsz),
+          "wght" var(--service-wght);
+        font-size: var(--service-font-size);
       }
     }
 
@@ -112,11 +123,19 @@
       & > .tel {
         grid-area: tel;
         justify-content: end;
+        font-variation-settings:
+          "opsz" var(--tel-opsz),
+          "wght" var(--tel-wght);
+        font-size: var(--tel-font-size);
       }
 
       & > .mailto {
         grid-area: mailto;
         justify-content: start;
+        font-variation-settings:
+          "opsz" var(--mailto-opsz),
+          "wght" var(--mailto-wght);
+        font-size: var(--mailto-font-size);
       }
     }
 
