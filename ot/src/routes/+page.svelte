@@ -29,7 +29,7 @@
   article {
     container: article / inline-size;
     display: grid;
-    grid-template-columns: 3dvw 1fr 3dvw;
+    grid-template-columns: 2dvw 1fr 2dvw;
     grid-template-rows: auto 2fr 1fr auto;
     grid-template-areas:
       ". header ."
